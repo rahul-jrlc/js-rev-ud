@@ -15,7 +15,7 @@ let population = 1300000000;
 console.log(country);
 console.log(continent);
 console.log(population);
-*/
+
 
 // DATA TYPES - Primitives and objects
 let isFun = true;
@@ -39,3 +39,19 @@ let isIsland = false;
 let language;
 console.log(typeof isIsland);
 console.log(typeof language);
+*/
+
+// LET, CONST , VAR
+let age = 30;
+age = 31; // reassignment, mutated the variable
+
+const birthYear = 1991;
+// birthYear = 1990; // Error - immutable variable const
+
+// const job; // error - need an initial value
+
+var job = "programmer";
+job = "teacher";
+
+lastName = "pinky"; // CREATES A PROPERTY ON THE GLOBAL OBJECT, NOT A VARIABLE IN CURRENT SCOPE
+console.log(lastName);
