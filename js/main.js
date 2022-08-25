@@ -251,7 +251,7 @@ if (dolphinsScore >= 100 || KoalasScore >= 100) {
 } else {
     console.log("Scores too low.");
 };
-*/
+
 
 // SWITCH STATEMENT
 const day = "friday";
@@ -277,3 +277,23 @@ switch (day) {
         console.log("din nahi hai yeh.");
     
 };
+*/
+
+// THE CONDITIONAL / TERNARY OPERATOR
+
+const age = 15;
+
+age >= 18 ? console.log("bewda banega") : console.log("abhi bewda nahi banega.");;
+
+const result = age >= 18 ? "whiskey" : "tropicana";
+console.log(result);
+
+let result2;
+if (age >= 18) {
+    result2 = "vodka";
+} else {
+    result2 = "ganne ka juice."
+};
+console.log(result2);
+
+console.log(`I like to drink ${age >= 18? "Hibiki": "milk"}.`);
