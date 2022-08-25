@@ -169,7 +169,7 @@ console.log(String(3434), 3434);
 console.log("I am " + 23 + " years old.");
 
 console.log("23" - "33" - 98);
-*/
+
 
 // TRUTHY AND FALSY VALUES
 console.log(Boolean(0));
@@ -191,3 +191,14 @@ if (height) {
 } else {
     console.log("undefined.");
 };
+*/
+
+// EQUALITY OPERATORS
+const age = 18;
+if (age === 18) console.log("Adult now.");
+
+console.log(18 === "18"); // strict equality operator - compares data type
+console.log(18 == "18"); // loose equality operator - type coercion
+
+const fav = Number(prompt("Favourite number?"));
+console.log(fav);
