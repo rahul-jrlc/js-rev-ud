@@ -152,7 +152,7 @@ if (johnBMI > markBMI) {
 } else {
     console.log(`Mark's BMI ${markBMI} is higher than John's ${johnBMI}.`);
 };
-*/
+
 
 // TYPE CONVERSION
 
@@ -169,3 +169,25 @@ console.log(String(3434), 3434);
 console.log("I am " + 23 + " years old.");
 
 console.log("23" - "33" - 98);
+*/
+
+// TRUTHY AND FALSY VALUES
+console.log(Boolean(0));
+console.log(Boolean(NaN));
+console.log(Boolean(null));
+console.log(Boolean(undefined));
+console.log(Boolean(''));
+
+const money = 0;
+if (money) {
+    console.log("Don't spend it all.");
+} else {
+    console.log("GAREEB")
+};
+
+let height;
+if (height) {
+    console.log("Defined.");
+} else {
+    console.log("undefined.");
+};
