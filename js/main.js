@@ -89,7 +89,7 @@ console.log(johnBMI);
 
 const markHigherBMI = markBMI > johnBMI;
 console.log(markHigherBMI);
-*/
+
 
 // STRINGS AND TEMPLATE LITERALS
 
@@ -100,3 +100,27 @@ const year = 2037;
 
 const jonas = `I'm ${firstName}, a ${year - birthYear} years old ${job}.`;
 console.log(jonas);
+*/
+
+// IF ELSE STATEMENTS
+
+const age = 14;
+// const isOldEnough = age >= 18;
+
+if (age >= 18) {
+    console.log("Buddha");
+} else {
+    const yearsLeft = 18 - age;
+    console.log("Baccha", yearsLeft);
+};
+
+const birthYear = 2003;
+
+let century;
+
+if (birthYear <= 2000) {
+    century = 20;
+} else {
+    century = 21;
+};
+console.log(century);
