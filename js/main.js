@@ -191,7 +191,7 @@ if (height) {
 } else {
     console.log("undefined.");
 };
-*/
+
 
 // EQUALITY OPERATORS
 const age = 18;
@@ -202,3 +202,13 @@ console.log(18 == "18"); // loose equality operator - type coercion
 
 const fav = Number(prompt("Favourite number?"));
 console.log(fav);
+*/
+
+// BOOLEAN LOGIC
+
+const hasDriversLicense = true;
+const hasGoodVision = false;
+
+console.log(hasDriversLicense && hasGoodVision);
+console.log(hasDriversLicense || hasGoodVision);
+console.log(!hasDriversLicense);
