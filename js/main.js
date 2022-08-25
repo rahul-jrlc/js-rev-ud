@@ -232,7 +232,7 @@ both teams have the same score and both have a score greater or equal 100
 points. Otherwise, no team wins the trophy
 Test data:
 § Data 1: Dolphins score 96, 108 and 89. Koalas score 88, 91 and 110
-*/
+
 
 const dolphinsScore = (50 + 50 + 1) / 2;
 console.log(dolphinsScore);
@@ -250,4 +250,30 @@ if (dolphinsScore >= 100 || KoalasScore >= 100) {
     }
 } else {
     console.log("Scores too low.");
+};
+*/
+
+// SWITCH STATEMENT
+const day = "friday";
+
+switch (day) {
+    case "monday":
+        console.log("Today is monday.");
+        console.log("Bhosda day.");
+        break;
+    case "tuesday":
+        console.log("Today is tuesday");
+        break;
+    case "wednesday":
+    case "thursday":
+        console.log("mutthi");
+        break;
+    case "friday":
+    case "saturday":
+    case "sunday":
+        console.log("daaru");
+        break;
+    default:
+        console.log("din nahi hai yeh.");
+    
 };
