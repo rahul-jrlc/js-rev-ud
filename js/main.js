@@ -22,7 +22,7 @@ const orangeJuice = fruitProcessor(0, 3);
 console.log(appleJuice);
 console.log(orangeJuice);
 console.log(juice1);
-*/
+
 
 // FUNCTION DECLARATION VS EXPESSION
 
@@ -74,3 +74,19 @@ const percentageOfWorld2 = function (population) {
 
 const india2 = percentageOfWorld2(130);
 console.log(india2);
+*/
+
+// ARROW FUNCTIONS
+
+const calcAge3 = birthYear => 2037 - birthYear;
+const age3 = calcAge3(1967);
+console.log(age3);
+
+const yearsUntilRetirement = (birthYear, firstName) => {
+    const age = 2037 - birthYear;
+    const retirement = 65 - age;
+    return `${firstName} retires in ${retirement} years.`;
+};
+
+const retireAge = yearsUntilRetirement(1999, "Bob");
+console.log(retireAge);
