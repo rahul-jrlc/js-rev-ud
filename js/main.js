@@ -249,7 +249,7 @@ console.log(tips);
 
 const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]]
 console.log(total);
-*/
+
 
 // INTRODUCTION TO OBJECTS
 
@@ -302,3 +302,72 @@ console.log(myCountry["population"]);
 
 myCountry["population"] = myCountry["population"] - 2000000;
 console.log(myCountry["population"]);
+*/
+
+// OBJECT METHODS
+// any function attached to an object is called a method
+
+const jonas = {
+    firstName: "Jonas",
+    lastName: "Schmedtmann",
+    birthYear: 1991,
+    job: "teacher",
+    married: false,
+    friends: ["Michael", "Peter", "Steven"],
+
+    // calcAge: function (birthYear) {
+    //     return 2037 - birthYear;
+    // }
+
+    // calcAge: function () {
+    //     console.log(this);
+    //     return 2037 - this.birthYear;
+    // }
+
+    calcAge: function () {
+        this.age = 2037 - this.birthYear;
+        return this.age;
+    },
+
+    getSummary: function () {
+        this.summary = `${this.firstName} is a ${this.age} years old ${this.job} and he is ${this.married === false ? "married" : "unmarried"}.`;
+    }
+};
+
+jonas.calcAge();
+jonas.getSummary();
+
+console.log(jonas.summary);
+
+// console.log(jonas.calcAge());
+jonas.calcAge();
+
+console.log(jonas.age);
+
+// console.log(jonas.calcAge());
+
+// console.log(jonas["calcAge"](1991));
+
+// exercise
+const myCountry = {
+    country: "India",
+    capital: "New Delhi",
+    language: "Hindi",
+    population: 1300000000,
+    neighbours: ["Pakistan", "China", "Bhutan", "Sri Lanka", "Myanmar", "Nepal"],
+    // describe: function () {
+    //     console.log(`${this.country} has ${this.population} ${this.language}-speaking people, ${this.neighbours.length} neighbouring countries and a capital called ${ths.capital}.`);
+    // }
+
+    describe: function () {
+        console.log(`${this.country} has ${this.population} ${this.language}-speaking people, ${this.neighbours.length} neighbouring countries and a capital called ${this.capital}.`)
+    },
+
+    checkIsland: function () {
+        this.isIsland = this.neighbours.length === 0 ? true : false;
+    }
+};
+myCountry.describe();
+myCountry.checkIsland();
+
+console.log(myCountry);
