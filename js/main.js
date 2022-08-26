@@ -142,7 +142,7 @@ const checkWinner = function (dolphins, koalas) {
 
 checkWinner(avgDolphins, avgKoalas);
 checkWinner((85 + 54 + 41) / 3, (23 + 34 + 27) / 3);
-*/
+
 
 // INTRO TO ARRAYS
 
@@ -186,3 +186,45 @@ function percentageOfWorld1(population) {
 
 const percentages = [percentageOfWorld1(populationInMillion[0]), percentageOfWorld1(populationInMillion[1]), percentageOfWorld1(populationInMillion[2]), percentageOfWorld1(populationInMillion[3])];
 console.log(percentages);
+*/
+
+// BASIC ARRAY METHODS (OPERATIONS)
+
+const friends = ["michael", "steven", "peter"];
+
+// PUSH - ADD ELEMENTS TO END OF ARRAY
+const newLength = friends.push("PINKY"); // returns length of new array
+console.log(newLength);
+console.log(friends);
+
+// UNSHIFT - ADD ELEMENTS TO START OF AN ARRAY
+friends.unshift("TINKU");
+console.log(friends);
+
+// POP - REMOVES AND RETURNS LAST ELEMENT OF ARRAY
+const poppedItem = friends.pop();
+console.log(poppedItem);
+console.log(friends);
+
+// SHIFT - REMOVE AND RETURN FIRST ELEMENT OF ARRAY
+const shiftedItem = friends.shift();
+console.log(shiftedItem);
+console.log(friends);
+
+console.log(friends.indexOf("PINKY"));
+console.log(friends.indexOf("michael"));
+
+console.log(friends.includes("PINKY"));
+
+// exercise
+const neighbours = ["Pakistan", "Bangladesh", "China", "Sri Lanka", "Myanmar", "Bhutan"];
+
+neighbours.push("Utopia");
+console.log(neighbours);
+neighbours.pop();
+
+if (neighbours.includes("Germany")) {
+    console.log("European country");
+} else {
+    console.log("Probably not a European country.");
+};
