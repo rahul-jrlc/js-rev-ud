@@ -302,7 +302,7 @@ console.log(myCountry["population"]);
 
 myCountry["population"] = myCountry["population"] - 2000000;
 console.log(myCountry["population"]);
-*/
+
 
 // OBJECT METHODS
 // any function attached to an object is called a method
@@ -371,3 +371,30 @@ myCountry.describe();
 myCountry.checkIsland();
 
 console.log(myCountry);
+*/
+
+//PART 2 - CODING CHALLENGE 3
+
+const mark = {
+    fullName: "Mark Miller",
+    mass: 78,
+    height: 1.69,
+    calcBMI: function () {
+        this.BMI = this.mass / this.height ** 2;
+        return this.BMI;
+    }
+};
+console.log(mark.calcBMI());
+
+const john = {
+    fullName: "John Smith",
+    mass: 92,
+    height: 1.95,
+    calcBMI: function () {
+        this.BMI = this.mass / this.height ** 2;
+        return this.BMI;
+    }
+};
+
+console.log(john.calcBMI());
+
