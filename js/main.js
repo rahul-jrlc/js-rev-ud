@@ -186,7 +186,7 @@ function percentageOfWorld1(population) {
 
 const percentages = [percentageOfWorld1(populationInMillion[0]), percentageOfWorld1(populationInMillion[1]), percentageOfWorld1(populationInMillion[2]), percentageOfWorld1(populationInMillion[3])];
 console.log(percentages);
-*/
+
 
 // BASIC ARRAY METHODS (OPERATIONS)
 
@@ -228,3 +228,24 @@ if (neighbours.includes("Germany")) {
 } else {
     console.log("Probably not a European country.");
 };
+*/
+
+// CODING CHALLENGE 2
+
+const calcTip = bill => {
+    if (bill >= 50 && bill <= 300) {
+        return bill * 0.15;
+    } else {
+        return bill * 0.2;
+    }
+};
+const bill100 = calcTip(100);
+console.log(bill100);
+
+const bills = [125, 555, 44];
+
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+console.log(tips);
+
+const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]]
+console.log(total);
