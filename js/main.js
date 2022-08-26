@@ -262,3 +262,43 @@ const jonas = {
     married: false,
     friends: ["Michael", "Peter", "Steven"]
 };
+
+// DOT VS BRACKET NOTATION
+console.log(jonas);
+
+console.log(jonas.lastName);
+console.log(jonas["lastName"]);
+
+const nameKey = "Name";
+console.log(jonas["first" + nameKey]);
+console.log(jonas["last" + nameKey]);
+
+
+const result = prompt("What do you want to know about Jonas?");
+console.log(jonas[result]);
+
+if (jonas[result]) {
+    console.log(jonas[result]);
+} else {
+    console.log("Wrong request.");
+};
+
+jonas.location = "Argentina";
+jonas["childrem"] = 4;
+console.log(jonas);
+
+// exercise
+const myCountry = {
+    country: "India",
+    capital: "New Delhi",
+    language: "Hindi",
+    population: 1300000000,
+    neighbours: ["Pakistan", "China", "Bhutan", "Sri Lanka", "Myanmar", "Nepal"]
+};
+console.log(`${myCountry.country} has ${myCountry.population} people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital}.`);
+
+myCountry.population = myCountry.population + 2000000;
+console.log(myCountry["population"]);
+
+myCountry["population"] = myCountry["population"] - 2000000;
+console.log(myCountry["population"]);
