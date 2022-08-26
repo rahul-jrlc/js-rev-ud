@@ -228,7 +228,7 @@ if (neighbours.includes("Germany")) {
 } else {
     console.log("Probably not a European country.");
 };
-*/
+
 
 // CODING CHALLENGE 2
 
@@ -249,3 +249,16 @@ console.log(tips);
 
 const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]]
 console.log(total);
+*/
+
+// INTRODUCTION TO OBJECTS
+
+// object literal syntax
+const jonas = {
+    firstName: "Jonas",
+    lastName: "Schmedtmann",
+    age: 30,
+    job: "teacher",
+    married: false,
+    friends: ["Michael", "Peter", "Steven"]
+};
