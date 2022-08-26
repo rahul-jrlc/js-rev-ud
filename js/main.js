@@ -371,7 +371,7 @@ myCountry.describe();
 myCountry.checkIsland();
 
 console.log(myCountry);
-*/
+
 
 //PART 2 - CODING CHALLENGE 3
 
@@ -397,4 +397,72 @@ const john = {
 };
 
 console.log(john.calcBMI());
+*/
 
+// ITERATION - THE FOR LOOP
+// keeps running while the condition is true
+
+// --counter---condition--increment in counter variable
+for (let i = 1; i <= 10; i++) {
+    console.log(`Bench press: rep ${i}`);
+};
+
+
+// for (let i = 1; i <= 50; i++) {
+//     console.log(`Voter number ${i} is voting.`);
+// };
+
+
+// LOOPING ARRAYS, BREAKING AND CONTINUING
+
+const jonasArray = [
+    "Jonas",
+    "Schmedtmann",
+    2037 - 1991,
+    "teacher",
+    ["Michael", "Peter", "Steven"]
+];
+
+for (let i = 0; i < jonasArray.length; i++) {
+    console.log(jonasArray[i], typeof jonasArray[i]);
+};
+
+const newArray = [];
+
+for (let i = 0; i < jonasArray.length; i++) {
+    newArray.push(typeof jonasArray[i]);
+};
+console.log(newArray);
+
+const years = [1991, 2007, 1969, 2020];
+
+const ages = [];
+
+const calcAge = function (birthYears) {
+    for (let i = 0; i < birthYears.length; i++) {
+        ages.push(2037 - birthYears[i]);
+    }
+};
+
+calcAge(years);
+console.log(ages);
+
+// CONTINUE AND BREAK STATEMENT
+
+console.log('----ONLY STRINGS-------');
+for (let i = 0; i < jonasArray.length; i++) {
+    if (typeof jonasArray[i] !== "string") {
+        continue; // exits the current iteration
+    } else {
+        console.log(jonasArray[i], typeof jonasArray[i]);
+    };    
+};
+
+console.log('-----BREAK ONLY NUMBERS------');
+for (let i = 0; i < jonasArray.length; i++) {
+    if (typeof jonasArray[i] === "number") {
+        break; // loop is terminated
+    } else {
+        console.log(jonasArray[i], typeof jonasArray[i]);
+    };    
+};
