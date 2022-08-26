@@ -74,7 +74,7 @@ const percentageOfWorld2 = function (population) {
 
 const india2 = percentageOfWorld2(130);
 console.log(india2);
-*/
+
 
 // ARROW FUNCTIONS
 
@@ -90,3 +90,19 @@ const yearsUntilRetirement = (birthYear, firstName) => {
 
 const retireAge = yearsUntilRetirement(1999, "Bob");
 console.log(retireAge);
+*/
+
+// FUNCTIONS CALLING OTHER FUNCTIONS
+function cutfruitPieces(fruit) {
+    return fruit * 4;
+}
+
+function fruitProcessor(apples, oranges) {
+    const applePieces = cutfruitPieces(apples);
+    const orangePieces = cutfruitPieces(oranges);
+
+    const juice = `Juice with ${applePieces} pieces of apple and ${orangePieces} pieces of orange.`;
+    return juice;
+};
+
+console.log(fruitProcessor(2, 3));
