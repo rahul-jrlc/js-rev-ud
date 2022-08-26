@@ -90,7 +90,7 @@ const yearsUntilRetirement = (birthYear, firstName) => {
 
 const retireAge = yearsUntilRetirement(1999, "Bob");
 console.log(retireAge);
-*/
+
 
 // FUNCTIONS CALLING OTHER FUNCTIONS
 function cutfruitPieces(fruit) {
@@ -106,3 +106,39 @@ function fruitProcessor(apples, oranges) {
 };
 
 console.log(fruitProcessor(2, 3));
+
+function percentageOfWorld1(population) {
+    return (population / 7900) * 100;
+};
+
+const describePopulation = (country, population) => {
+    const percent = percentageOfWorld1(population);
+    return `${country} has ${population} million people, which is about ${Math.ceil(percent)}% of the world.`;
+};
+
+const india = describePopulation("India", 1300);
+console.log(india);
+*/
+
+// PART-2 CODING CHALLENGE 1
+
+const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
+
+const avgDolphins = calcAverage(44, 23, 71);
+console.log(avgDolphins);
+
+const avgKoalas = calcAverage(65, 54, 49);
+console.log(avgKoalas);
+
+const checkWinner = function (dolphins, koalas) {
+    if (dolphins >= koalas * 2) {
+        console.log(`Dolphins win (${dolphins} vs ${koalas}).`);
+    } else if (koalas >= dolphins * 2) {
+        console.log(`Koalas win (${koalas} vs ${dolphins}).`);
+    } else {
+        console.log("No winner.");
+    }
+};
+
+checkWinner(avgDolphins, avgKoalas);
+checkWinner((85 + 54 + 41) / 3, (23 + 34 + 27) / 3);
