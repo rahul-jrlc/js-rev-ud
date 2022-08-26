@@ -397,7 +397,7 @@ const john = {
 };
 
 console.log(john.calcBMI());
-*/
+
 
 // ITERATION - THE FOR LOOP
 // keeps running while the condition is true
@@ -465,4 +465,41 @@ for (let i = 0; i < jonasArray.length; i++) {
     } else {
         console.log(jonasArray[i], typeof jonasArray[i]);
     };    
+};
+*/
+
+// LOOPS IN LOOPS
+
+for (let exercise = 1; exercise < 4; exercise++) {
+    console.log(`-------Starting exercise ${exercise}-------`);
+
+    for (let rep = 1; rep < 6; rep++) {
+        console.log(`Exercise ${exercise}: rep ${rep}.`);
+    }
+};
+
+// exercise
+
+const populationInMillion = [130, 4, 6, 10];
+
+function percentageOfWorld1(population) {
+    return (population / 7900) * 100;
+};
+
+const percentages2 = [];
+
+for (let i = 0; i < populationInMillion.length; i++) {
+    percentages2.push(percentageOfWorld1(populationInMillion[i]));
+};
+console.log(percentages2);
+
+// const percentages = [percentageOfWorld1(populationInMillion[0]), percentageOfWorld1(populationInMillion[1]), percentageOfWorld1(populationInMillion[2]), percentageOfWorld1(populationInMillion[3])];
+// console.log(percentages);
+
+const listOfNeighbours = [["Canada", "Mexico"], ["Spain"], ["Norway", "Sweden", "Russia"]];
+
+for (let i = 0; i < listOfNeighbours.length; i++) {
+    for (let country = 0; country < listOfNeighbours[i].length; country++) {
+        console.log(`Neighbour: ${listOfNeighbours[i][country]}.`);
+    }
 };
