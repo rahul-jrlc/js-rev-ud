@@ -118,7 +118,7 @@ const describePopulation = (country, population) => {
 
 const india = describePopulation("India", 1300);
 console.log(india);
-*/
+
 
 // PART-2 CODING CHALLENGE 1
 
@@ -142,3 +142,47 @@ const checkWinner = function (dolphins, koalas) {
 
 checkWinner(avgDolphins, avgKoalas);
 checkWinner((85 + 54 + 41) / 3, (23 + 34 + 27) / 3);
+*/
+
+// INTRO TO ARRAYS
+
+const friend1 = "michael";
+const friend2 = "steven";
+const friend3 = "peter";
+
+const friends = [friend1, friend2, friend3];
+console.log(friends);
+
+const y = new Array(1991, 2008, 2020, 1786);
+
+console.log(friends[0], friends[2]);
+
+console.log(friends.length);
+
+console.log(friends[friends.length - 1]);
+
+friends[2] = "Jake";
+console.log(friends);
+
+const jonas = ["Jonas", "Schmedtmann", 2037 - 1991, "teacher", friends];
+console.log(jonas);
+
+// exercise
+const calcAge = function (birthYear) {
+    return 2037 - birthYear;
+};
+
+const years = [1990, 1967, 2002, 2018];
+
+const age1 = calcAge(years[0]);
+console.log(age1);
+
+const populationInMillion = [130, 4, 6, 10];
+console.log(populationInMillion.length === 4);
+
+function percentageOfWorld1(population) {
+    return (population / 7900) * 100;
+};
+
+const percentages = [percentageOfWorld1(populationInMillion[0]), percentageOfWorld1(populationInMillion[1]), percentageOfWorld1(populationInMillion[2]), percentageOfWorld1(populationInMillion[3])];
+console.log(percentages);
