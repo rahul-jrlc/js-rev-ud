@@ -503,7 +503,7 @@ for (let i = 0; i < listOfNeighbours.length; i++) {
         console.log(`Neighbour: ${listOfNeighbours[i][country]}.`);
     }
 };
-*/
+
 
 // WHILE LOOP
 // for (let rep = 1; rep <= 10; rep++) {
@@ -543,3 +543,39 @@ while (i < populationInMillion.length) {
     i++;
 };
 console.log(percentages3);
+*/
+
+// PART 2 - CODING CHALLENGE 4
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+
+const tips = [];
+
+const totals = [];
+
+const calcTip = bill => {
+    if (bill >= 50 && bill <= 300) {
+        return bill * 0.15;
+    } else {
+        return bill * 0.2;
+    }
+};
+
+for (let i = 0; i < bills.length; i++) {
+    tips.push(calcTip(bills[i]));
+    totals.push(bills[i] + tips[i]);
+};
+
+console.log(tips);
+console.log(totals);
+
+const calcAverage = function (arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    };
+    const average = sum / arr.length;
+    return average;
+};
+
+console.log(`Average of the totals array is: ${calcAverage(totals)}`);
