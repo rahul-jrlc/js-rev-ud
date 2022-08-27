@@ -466,7 +466,7 @@ for (let i = 0; i < jonasArray.length; i++) {
         console.log(jonasArray[i], typeof jonasArray[i]);
     };    
 };
-*/
+
 
 // LOOPS IN LOOPS
 
@@ -503,3 +503,43 @@ for (let i = 0; i < listOfNeighbours.length; i++) {
         console.log(`Neighbour: ${listOfNeighbours[i][country]}.`);
     }
 };
+*/
+
+// WHILE LOOP
+// for (let rep = 1; rep <= 10; rep++) {
+//     console.log(`Lifting weights rep ${rep}.`);
+// };
+
+// -counter-
+let rep = 1;
+while (rep <= 10) { // condition
+    console.log(`Rep ${rep}`);
+    rep++; // increment
+};
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+while (dice !== 6) {
+    console.log(`You rolled a ${dice}.`);
+    dice = Math.trunc(Math.random() * 6) + 1;
+    if (dice === 6) {
+        console.log('loop about to end.');
+    }
+};
+
+// exercise
+const populationInMillion = [130, 4, 6, 10];
+
+function percentageOfWorld1(population) {
+    return (population / 7900) * 100;
+};
+
+const percentages3 = [];
+
+let i = 0;
+
+while (i < populationInMillion.length) {
+    percentages3.push(percentageOfWorld1(populationInMillion[i]));
+    i++;
+};
+console.log(percentages3);
