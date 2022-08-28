@@ -1,113 +1,45 @@
 "use strict";
 
-// JAVASCRIPT IN THE BROWSER: DOM MANIPULATION
+// JAVASCRIPT BEHIND THE SCENES
 
-// PROJECT - GUESS MY NUMBER
-/*
-console.log(document.querySelector(".message").textContent);
+// SCOPING IN PRACTICE
 
-document.querySelector(".message").textContent = "Correct Number!";
+function calcAge(birthYear) {
+    const age = 2037 - birthYear;
 
-console.log(document.querySelector(".message").textContent);
+    function printAge() {
+        let output = `${firstName}, you are ${age} years old, born in ${birthYear}.`;
+        console.log(output);
 
-document.querySelector(".number").textContent = 13;
-document.querySelector(".score").textContent = 1000;
+        if (birthYear >= 1981 && birthYear <= 1996) {
+            var millenial = true;
+            // CReating NEW variable with same name as outer scope variable
+            const firstName = "Steven";
 
-document.querySelector(".guess").value = 23;
-console.log(document.querySelector(".guess").value);
-*/
+            // Reassigning outer scope's variable
+            output = "NEW OUTPUT";
+            const str = `Oh and you're a millenial, ${firstName}.`;
+            console.log(str);
 
-// IMPLEMENTING GAME LOGIC
+            function add(a, b) {
+                return a + b;
+            }
 
-let secretNumber = Math.trunc(Math.random() * 20) + 1;
-
-let score = 20; // state variable
-
-let highScore = 0;
-
-const displayMessage = function (message) {
-    document.querySelector(".message").textContent = message;
+        }
+        // console.log(str); // error, since const is block scoped
+        console.log(millenial); // var is function scoped - no error
+        // console.log(add(2, 3)); // error, since function defined in if block of code - undefined
+        // functions are block scoped only in strict mode
+        console.log(output);
+    }
+    printAge();
+    return age;
 };
 
-document.querySelector(".number").textContent = secretNumber;
+const firstName = "Jonas";
 
-//   -------------------handling click events
-document.querySelector(".check").addEventListener("click", function () {
-    const guess = Number(document.querySelector(".guess").value);
-    console.log(guess);
+calcAge(1991);
 
-    // When there is no guess
-    if (!guess) {
-        // document.querySelector(".message").textContent = "No Number :(";
-        displayMessage("No Number :(");
+// console.log(age); // error, since age is not in the global scope, but rather in the scope of calcAge function
 
-        // When player wins
-    } else if (guess === secretNumber) {
-        // document.querySelector(".message").textContent = "Correct Number :)";
-        displayMessage("Correct Number :)");
-
-        // MANIPULATING CSS STYLES
-        document.querySelector("body").style.backgroundColor = "#60b347";
-
-        document.querySelector(".number").style.width = "30rem";
-
-        // IMPLEMENTING HIGH SCORES
-        if (score > highScore) {
-            highScore = score;
-            document.querySelector(".highscore").textContent = highScore;
-        }
-
-        // When guess is wrong
-    } else if (guess !== secretNumber) {
-        if (score > 1) {
-            // document.querySelector(".message").textContent = guess > secretNumber ? "Too high!" : "Too low!";
-            displayMessage(guess > secretNumber ? "Too high!" : "Too low!");
-            score--;
-            document.querySelector(".score").textContent = score;
-        } else {
-            // document.querySelector(".message").textContent = "LOSER :|"
-            displayMessage("LOSER :|");
-            document.querySelector(".score").textContent = 0;
-        }
-    }
-});
-        // when guess is too high
-     // else if (guess > secretNumber) { 
-    //     if (score > 1) {
-    //         document.querySelector(".message").textContent = "Too high!";
-    //         score--;
-    //         document.querySelector(".score").textContent = score;
-    //     } else {
-    //         document.querySelector(".message").textContent = "LOSER :|"
-    //         document.querySelector(".score").textContent = 0;
-    //     }
-        
-    //     // When guess is too low
-    // } else if (guess < secretNumber) {
-    //     if (score > 1) {
-    //         document.querySelector(".message").textContent = "Too Low!";
-    //         score--;
-    //         document.querySelector(".score").textContent = score;
-    //     } else {
-    //         document.querySelector(".message").textContent = "LOSER :|";
-    //         document.querySelector(".score").textContent = 0;
-    //     }
-        
-    // }
-//});
-
-// DOM - CODING CHALLENGE 2
-
-document.querySelector(".again").addEventListener("click", function () {
-    score = 20;
-    secretNumber = Math.trunc(Math.random() * 20) + 1;
-
-    displayMessage("Start guessing...");
-
-    // document.querySelector(".message").textContent = "Start guessing...";
-    document.querySelector(".score").textContent = 0;
-    document.querySelector(".number").textContent = "?";
-    document.querySelector(".guess").value = '';
-    document.querySelector("body").style.backgroundColor = "#222";
-    document.querySelector(".number").style.width = "15rem";
-});
+// printAge(); // error
