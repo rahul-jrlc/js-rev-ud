@@ -46,7 +46,7 @@ calcAge(1991);
 */
 
 // HOISTING AND THE TEMPORAL DEAD ZONE
-
+/*
 // Variables hoisting
 console.log(me);
 // console.log(job);
@@ -89,3 +89,47 @@ const z = 3;
 console.log(x === window.x); // true
 console.log(y === window.y); // false
 console.log(z === window.z);// false
+*/
+
+// THE this KEYWORD
+console.log(this); // points to the window object
+
+const calcAge = function (birthYear) {
+    console.log(2037 - birthYear);
+    console.log(this); // undefined
+};
+// Regular function call
+calcAge(1991);
+
+// Arrow functions do not get their own this keyword
+// Arrow functions use the lexical this keyword i.e this keyword of the parent scope or parent function
+const calcAgeArrow = birthYear => {
+    console.log(2037 - birthYear);
+    console.log(this); // will point to the window object
+};
+
+calcAgeArrow(1991);
+
+// METHOD CALL
+
+const jonas = {
+    year: 1991,
+    calcAge: function () {
+        console.log(this); // this keyword points to the object calling the method
+        console.log(2037 - this.year);
+    }
+};
+
+jonas.calcAge();
+
+
+const matilda = {
+    year: 2017
+};
+
+// METHOD BORROWING
+matilda.calcAge = jonas.calcAge;
+matilda.calcAge(); // this points to matilda - the object calling the method - ALWAYS
+
+const f = jonas.calcAge;
+f();
