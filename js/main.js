@@ -89,7 +89,7 @@ const z = 3;
 console.log(x === window.x); // true
 console.log(y === window.y); // false
 console.log(z === window.z);// false
-*/
+
 
 // THE this KEYWORD
 console.log(this); // points to the window object
@@ -133,3 +133,63 @@ matilda.calcAge(); // this points to matilda - the object calling the method - A
 
 const f = jonas.calcAge;
 f();
+*/
+
+// REGULAR FUNCTIONS VS ARROW FUNCTIONS
+
+// var firstName = "Matilda";
+
+const jonas = { // object literal in the global scope
+    firstName: "Jonas",
+    year: 1991,
+    calcAge: function () {
+        // console.log(this);
+        console.log(2037 - this.year);
+
+        // SOLUTION 1
+        // const self = this; // self or that inside method points to the object
+        // const isMIllenial = function () {
+        //     console.log(self);
+        //     console.log(self.year >= 1981 && self.year <= 1996);
+        //     //console.log(this.year >= 1981 && this.year <= 1996);
+            
+        // };
+
+        // SOLUTION 2
+        const isMIllenial = () => {
+            console.log(this);
+            console.log(this.year >= 1981 && this.year <= 1996);
+            //console.log(this.year >= 1981 && this.year <= 1996);
+            
+        };
+        isMIllenial(); // regular function call
+    },
+
+    greet: () => {
+        console.log(this);
+        console.log(`Bhosdiwala ${this.firstName}.`)
+        // arrow func uses this keyword of parent scope - global scope
+        // no firstName property on the global window object
+    }
+};
+
+jonas.greet();
+// console.log(this);
+// console.log(this.firstName);
+
+jonas.calcAge();
+
+// ARGUMENTS KEYWORD - array of arguments
+const addExpr = function (a, b) {
+    console.log(arguments);
+    return a + b;;
+};
+addExpr(2, 4); 
+addExpr(2, 3, 4, 5, 6);
+
+var addArrow = (a, b) => {
+    console.log(arguments);
+    return a + b;
+};
+addArrow(2, 4, 4, 5, 6);
+
