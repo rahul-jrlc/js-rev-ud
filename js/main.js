@@ -1,255 +1,62 @@
 "use strict";
 
-// JAVASCRIPT BEHIND THE SCENES
+// DATA STRUCTURES, MODERN OPERATORS AND STRINGS
 
-// SCOPING IN PRACTICE
-/*
-function calcAge(birthYear) {
-    const age = 2037 - birthYear;
+// DESTRUCTURING ARRAYS
 
-    function printAge() {
-        let output = `${firstName}, you are ${age} years old, born in ${birthYear}.`;
-        console.log(output);
+const restaurant = {
+    name: 'Classico Italiano',
+    location: 'Via Angelo Tavanti 23, Firenze, Italy',
+    categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+    starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+    mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-        if (birthYear >= 1981 && birthYear <= 1996) {
-            var millenial = true;
-            // CReating NEW variable with same name as outer scope variable
-            const firstName = "Steven";
-
-            // Reassigning outer scope's variable
-            output = "NEW OUTPUT";
-            const str = `Oh and you're a millenial, ${firstName}.`;
-            console.log(str);
-
-            function add(a, b) {
-                return a + b;
-            }
-
-        }
-        // console.log(str); // error, since const is block scoped
-        console.log(millenial); // var is function scoped - no error
-        // console.log(add(2, 3)); // error, since function defined in if block of code - undefined
-        // functions are block scoped only in strict mode
-        console.log(output);
-    }
-    printAge();
-    return age;
-};
-
-const firstName = "Jonas";
-
-calcAge(1991);
-
-// console.log(age); // error, since age is not in the global scope, but rather in the scope of calcAge function
-
-// printAge(); // error
-*/
-
-// HOISTING AND THE TEMPORAL DEAD ZONE
-/*
-// Variables hoisting
-console.log(me);
-// console.log(job);
-// console.log(year);
-
-var me = "Jonas"; // hoisted during memory creation phase, value set to unefined
-let job = "teacher";// cannot access before initialization
-const year = 1991;
-
-// Hoisting with functions
-console.log(decl(2, 3));
-
-// console.log(expr(2, 3));
-
-// console.log(arrow(2, 3));
-
-function decl(a, b) {
-    return a + b;
-};
-
-const expr = function (a, b) {
-    return a + b;
-};
-
-var arrow = (a, b) => a + b;
-
-// Example
-if (!numProducts) deleteShoppingCart();
-
-var numProducts = 10;
-
-function deleteShoppingCart() {
-    console.log("All products deleted.");
-};
-
-var x = 1; // creates a property on the window object
-let y = 2;
-const z = 3;
-
-console.log(x === window.x); // true
-console.log(y === window.y); // false
-console.log(z === window.z);// false
-
-
-// THE this KEYWORD
-console.log(this); // points to the window object
-
-const calcAge = function (birthYear) {
-    console.log(2037 - birthYear);
-    console.log(this); // undefined
-};
-// Regular function call
-calcAge(1991);
-
-// Arrow functions do not get their own this keyword
-// Arrow functions use the lexical this keyword i.e this keyword of the parent scope or parent function
-const calcAgeArrow = birthYear => {
-    console.log(2037 - birthYear);
-    console.log(this); // will point to the window object
-};
-
-calcAgeArrow(1991);
-
-// METHOD CALL
-
-const jonas = {
-    year: 1991,
-    calcAge: function () {
-        console.log(this); // this keyword points to the object calling the method
-        console.log(2037 - this.year);
+    order: function (starterIndex, mainIndex) {
+        return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
     }
 };
 
-jonas.calcAge();
+const arr = [2, 3, 4];
+const a = arr[0];
+const b = arr[1];
+const c = arr[2];
+
+const [x, y, z] = arr;
+
+console.log(x);
+console.log(y);
+console.log(z);
+
+console.log(arr);
+
+let [main, ,secondary] = restaurant.categories;
+console.log(main);
+console.log(secondary);
+
+// SWITCHING VARIABLES
+
+// let temp = main;
+// main = secondary;
+// secondary = temp;
+// console.log(secondary, main);
+
+[main, secondary] = [secondary, main];
+console.log(main);
+console.log(secondary);
+
+console.log(restaurant.order(2, 0));
+
+// Receive 2 return values from a function
+const [starter, mainCourse] = restaurant.order(2, 0);
+console.log(starter);
+console.log(mainCourse);
+
+// Nested destructuring
+const nested = [2, 4, [5, 6]];
+const [i, , [p, q]] = nested;
+console.log(i, p, q);
 
 
-const matilda = {
-    year: 2017
-};
-
-// METHOD BORROWING
-matilda.calcAge = jonas.calcAge;
-matilda.calcAge(); // this points to matilda - the object calling the method - ALWAYS
-
-const f = jonas.calcAge;
-f();
-
-
-// REGULAR FUNCTIONS VS ARROW FUNCTIONS
-
-// var firstName = "Matilda";
-
-const jonas = { // object literal in the global scope
-    firstName: "Jonas",
-    year: 1991,
-    calcAge: function () {
-        // console.log(this);
-        console.log(2037 - this.year);
-
-        // SOLUTION 1
-        // const self = this; // self or that inside method points to the object
-        // const isMIllenial = function () {
-        //     console.log(self);
-        //     console.log(self.year >= 1981 && self.year <= 1996);
-        //     //console.log(this.year >= 1981 && this.year <= 1996);
-            
-        // };
-
-        // SOLUTION 2
-        const isMIllenial = () => {
-            console.log(this);
-            console.log(this.year >= 1981 && this.year <= 1996);
-            //console.log(this.year >= 1981 && this.year <= 1996);
-            
-        };
-        isMIllenial(); // regular function call
-    },
-
-    greet: () => {
-        console.log(this);
-        console.log(`Bhosdiwala ${this.firstName}.`)
-        // arrow func uses this keyword of parent scope - global scope
-        // no firstName property on the global window object
-    }
-};
-
-jonas.greet();
-// console.log(this);
-// console.log(this.firstName);
-
-jonas.calcAge();
-
-// ARGUMENTS KEYWORD - array of arguments
-const addExpr = function (a, b) {
-    console.log(arguments);
-    return a + b;;
-};
-addExpr(2, 4); 
-addExpr(2, 3, 4, 5, 6);
-
-var addArrow = (a, b) => {
-    console.log(arguments);
-    return a + b;
-};
-addArrow(2, 4, 4, 5, 6);
-*/
-
-// HOW PRIMITIVE TYPES AND OBJECTS ARE STORED IN MEMORY
-/*
-let age = 30;
-let oldAge = age;
-age = 31;
-console.log(age);
-console.log(oldAge);
-
-const me = {
-    name: "Jonas",
-    age: 30
-};
-
-const friend = me;
-friend.age = 27;
-
-console.log(`Friend:`, friend);
-console.log(`Me: `, me);
-*/
-
-// Primitive types
-let lastName = "Johnson";
-let oldLastName = lastName;
-lastName = "Shenoy";
-
-console.log(lastName, oldLastName);
-
-// Reference types
-const jessica = {
-    firstName: "Jessica",
-    lastNAme: "Williams",
-    age: 27
-};
-const marriedJessica = jessica;
-marriedJessica.lastNAme = "Shetty";
-
-console.log("Before Marriage: ", jessica);
-console.log("After Marriage: ", marriedJessica);
-
-// marriedJessica = {};
-
-// COPYING OBJECTS
-const jessica2 = {
-    firstName: "Jessica",
-    lastName: "Dawood",
-    age: 27,
-    family: ["pinky", "tinku"]
-};
-
-const jessicaCopy = Object.assign({}, jessica2);
-jessicaCopy.lastName = "Ibrahim";
-console.log("Before Marriage: ", jessica2);
-console.log("After Marriage: ", jessicaCopy);
-
-jessicaCopy.family.push("Sheela");
-jessicaCopy.family.push("Peela");
-
-console.log("Before Marriage: ", jessica2);
-console.log("After Marriage: ", jessicaCopy);
+// Default values
+const [j = 1, k = 1, r = 1] = [8, 9];
+console.log(j, k, r);
