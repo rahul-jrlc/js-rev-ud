@@ -3,7 +3,7 @@
 // JAVASCRIPT BEHIND THE SCENES
 
 // SCOPING IN PRACTICE
-
+/*
 function calcAge(birthYear) {
     const age = 2037 - birthYear;
 
@@ -43,3 +43,49 @@ calcAge(1991);
 // console.log(age); // error, since age is not in the global scope, but rather in the scope of calcAge function
 
 // printAge(); // error
+*/
+
+// HOISTING AND THE TEMPORAL DEAD ZONE
+
+// Variables hoisting
+console.log(me);
+// console.log(job);
+// console.log(year);
+
+var me = "Jonas"; // hoisted during memory creation phase, value set to unefined
+let job = "teacher";// cannot access before initialization
+const year = 1991;
+
+// Hoisting with functions
+console.log(decl(2, 3));
+
+// console.log(expr(2, 3));
+
+// console.log(arrow(2, 3));
+
+function decl(a, b) {
+    return a + b;
+};
+
+const expr = function (a, b) {
+    return a + b;
+};
+
+var arrow = (a, b) => a + b;
+
+// Example
+if (!numProducts) deleteShoppingCart();
+
+var numProducts = 10;
+
+function deleteShoppingCart() {
+    console.log("All products deleted.");
+};
+
+var x = 1; // creates a property on the window object
+let y = 2;
+const z = 3;
+
+console.log(x === window.x); // true
+console.log(y === window.y); // false
+console.log(z === window.z);// false
