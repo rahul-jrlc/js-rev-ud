@@ -133,7 +133,7 @@ matilda.calcAge(); // this points to matilda - the object calling the method - A
 
 const f = jonas.calcAge;
 f();
-*/
+
 
 // REGULAR FUNCTIONS VS ARROW FUNCTIONS
 
@@ -192,4 +192,64 @@ var addArrow = (a, b) => {
     return a + b;
 };
 addArrow(2, 4, 4, 5, 6);
+*/
 
+// HOW PRIMITIVE TYPES AND OBJECTS ARE STORED IN MEMORY
+/*
+let age = 30;
+let oldAge = age;
+age = 31;
+console.log(age);
+console.log(oldAge);
+
+const me = {
+    name: "Jonas",
+    age: 30
+};
+
+const friend = me;
+friend.age = 27;
+
+console.log(`Friend:`, friend);
+console.log(`Me: `, me);
+*/
+
+// Primitive types
+let lastName = "Johnson";
+let oldLastName = lastName;
+lastName = "Shenoy";
+
+console.log(lastName, oldLastName);
+
+// Reference types
+const jessica = {
+    firstName: "Jessica",
+    lastNAme: "Williams",
+    age: 27
+};
+const marriedJessica = jessica;
+marriedJessica.lastNAme = "Shetty";
+
+console.log("Before Marriage: ", jessica);
+console.log("After Marriage: ", marriedJessica);
+
+// marriedJessica = {};
+
+// COPYING OBJECTS
+const jessica2 = {
+    firstName: "Jessica",
+    lastName: "Dawood",
+    age: 27,
+    family: ["pinky", "tinku"]
+};
+
+const jessicaCopy = Object.assign({}, jessica2);
+jessicaCopy.lastName = "Ibrahim";
+console.log("Before Marriage: ", jessica2);
+console.log("After Marriage: ", jessicaCopy);
+
+jessicaCopy.family.push("Sheela");
+jessicaCopy.family.push("Peela");
+
+console.log("Before Marriage: ", jessica2);
+console.log("After Marriage: ", jessicaCopy);
