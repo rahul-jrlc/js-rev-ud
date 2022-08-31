@@ -34,10 +34,67 @@ const restaurant = {
 
     orderPasta: function (ing1, ing2, ing3) {
         console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}.`);
+    },
+
+    orderPizza: function (mainIngredient, ...otherIngredients) {
+        console.log(mainIngredient);
+        console.log(otherIngredients);
+        console.log(`The main ingredient in your pizza is ${mainIngredient}.`);
     }
 };
 
-// THE SPREAD OPERATOR
+restaurant.orderPizza("mushroom", "onion", "capsicum", "jalapeno", "tomato");
+
+// 1) DESTRUCTURING
+// REST PATTERN AND PARAMETERS - left side of the assignment operator
+// pack elements into an array
+
+const arr = [1, 2, ...[2, 3, 4, 5]]; // spread operator - on right side
+console.log(arr);
+
+const [a, b, ...others] = [1, 2, 3, 4, 5, 6]; // rest operator - on left side
+console.log(a);
+console.log(b);
+console.log(others);
+
+const [pizza, , risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(pizza);
+console.log(risotto);
+console.log(otherFood);
+
+// OBJECTS
+
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+// 2) FUNCTIONS
+let sum = 0;
+const add = function (...num) {
+    let sum = 0;
+    for (let i = 0; i < num.length; i++) {
+        sum += num[i];
+    }
+    console.log(sum);
+};
+add(2, 3);
+add(3, 4, 5, 6);
+add(2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6);
+
+const x = [2, 3, 4, 5, 22, 33, 654];
+add(...x);
+
+
+
+
+
+
+
+
+
+
+///////////////////////////
+/*
+// THE SPREAD OPERATOR - right side of the assignment operator
 const arr = [7, 8, 9];
 const badNewArray = [1, 2, arr[0], arr[1], arr[2]];
 console.log(badNewArray);
