@@ -1,6 +1,26 @@
 "use strict";
 
 // DATA STRUCTURES, MODERN OPERATORS AND STRINGS
+//
+
+// ENHANCED OBJECT LITERALS
+
+const weekdays = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+const openingHours = {
+    [weekdays[3]]: {
+        open: 12,
+        close: 22,
+    },
+    fri: {
+        open: 11,
+        close: 23,
+    },
+    ['s'+'a'+'t']: {
+        open: 0, 
+        close: 24,
+    }
+};
+
 
 
 const restaurant = {
@@ -10,23 +30,29 @@ const restaurant = {
     starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
     mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-    order: function (starterIndex, mainIndex) {
+    // ES6 object method
+    order (starterIndex, mainIndex) {
         return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
     },
-    openingHours: {
-        thu: {
-            open: 12,
-            close: 22,
-        },
-        fri: {
-            open: 11,
-            close: 23,
-        },
-        sat: {
-            open: 0, // Open 24 hours
-            close: 24,
-        },
-    },
+    // openingHours: {
+    //     thu: {
+    //         open: 12,
+    //         close: 22,
+    //     },
+    //     fri: {
+    //         open: 11,
+    //         close: 23,
+    //     },
+    //     sat: {
+    //         open: 0, // Open 24 hours
+    //         close: 24,
+    //     },
+    // },
+
+    // openingHours: openingHours,
+
+    // ES6 ENHANCED OBJECT LITERAL
+    openingHours,
 
     orderDelivery: function ({starterIndex = 1, mainIndex = 0, time = "20:00", address}) {
         console.log(`Order received: ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}.`);
@@ -43,6 +69,24 @@ const restaurant = {
     }
 };
 
+console.log(restaurant);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 // THE FOR-OF LOOP
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
