@@ -30,9 +30,65 @@ const restaurant = {
 
     orderDelivery: function ({starterIndex = 1, mainIndex = 0, time = "20:00", address}) {
         console.log(`Order received: ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}.`);
+    },
+
+    orderPasta: function (ing1, ing2, ing3) {
+        console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}.`);
     }
 };
 
+// THE SPREAD OPERATOR
+const arr = [7, 8, 9];
+const badNewArray = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArray);
+
+const newGoodArray = [1, 2, ...arr];
+console.log(newGoodArray);
+
+console.log(...newGoodArray);
+
+const newMenu = [...restaurant.mainMenu, "Gnocci"];
+console.log(newMenu);
+
+// Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+// Join 2 arrays
+const entireMenu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(entireMenu);
+
+// Spread operator works on all iterables: strings, arrays, maps, sets, NOT OBJECTS
+const str = "Jonas";
+const letters = [...str, " ", "S"];
+console.log(letters);
+console.log(...str);
+
+// Real world example
+// const ingredients = [prompt("Let's make pasta! Ingredient 1?"), prompt("Ingredient 2?"), prompt("Ingredient 3?")];
+// console.log(ingredients);
+
+// restaurant.orderPasta(...ingredients);
+
+// Objects
+const newRestaurant = { foundedIn: 1999, ...restaurant, founder: "Nagesh" };
+console.log(newRestaurant);
+
+// SHALLOW COPY OF OBJECTS
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = "Domino's";
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////
+/*
+// DESTRUCTURING OBJECTS
 restaurant.orderDelivery(
     {
         time: "22:30",
@@ -49,7 +105,7 @@ restaurant.orderDelivery(
     }
 );
 
-// DESTRUCTURING OBJECTS
+
 const { name, categories, openingHours } = restaurant;
 console.log(name);
 console.log(categories);
