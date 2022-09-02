@@ -69,13 +69,51 @@ const restaurant = {
     }
 };
 
-console.log(restaurant);
+// console.log(restaurant);
 
+// WORKING WITH STRINGS
 
+const airline = "TAP Air Portugal";
+const plane = "A320";
 
+console.log(plane[0]);
+console.log(plane[2]);
+console.log(plane[3]);
 
+console.log(typeof plane[2]);
+console.log(Number(plane[2]));
 
+console.log("ajhssJhuihg"[4]);
 
+console.log(airline.length);
+console.log("KHHGJJ".length);
+
+console.log(airline.indexOf('r')); // returns first occurence
+console.log(airline.lastIndexOf("r")); // returns the last occurence
+console.log(airline.indexOf("Portugal"));
+
+console.log(airline.slice(2));
+console.log(airline.slice(4, 8)); // does not include the character at the end index
+
+console.log(airline.slice(0, airline.indexOf(" "))); // first word of a string
+console.log(airline.slice(airline.lastIndexOf(" ") + 1)); // last word of a string
+
+console.log(airline.slice(-2));
+console.log(airline.slice(2, -1));
+
+const checkMiddleSeat = function (seat) {
+    // B and E are middle seats
+    const letter = seat.slice(-1);
+    if (letter === "B" || letter === "E") {
+        console.log(`You have been assigned the middle seat: Row ${seat.slice(0, seat.indexOf(letter))}, seat ${letter}.`);
+    } else {
+        console.log("Window or aisle");
+    }
+    
+};
+
+checkMiddleSeat("16B");
+checkMiddleSeat("22A")
 
 
 
