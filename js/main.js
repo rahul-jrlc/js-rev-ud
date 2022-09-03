@@ -74,6 +74,80 @@ const restaurant = {
 // WORKING WITH STRINGS
 
 const airline = "TAP Air Portugal";
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+// Fix capitalization in passenger name
+// const passenger = "jOnAs";
+// const passengerToLOwer = passenger.toLowerCase();
+// console.log(passengerToLOwer);
+// const correctedName = passengerToLOwer[0].toUpperCase() + passengerToLOwer.slice(1);
+// console.log(correctedName);
+
+const correctPassengerName = function (passengerName) {
+    const passengerToLOwer = passengerName.toLowerCase();
+    const correctedName = passengerToLOwer[0].toUpperCase() + passengerToLOwer.slice(1);
+    console.log(`Corrected passenger name: ${correctedName}.`);
+};
+
+correctPassengerName('piNKY');
+
+// Comparing email
+const email = "hello@jonas.io";
+const loginEmail = " Hello@Jonas.Io \n";
+
+const lowerEmail = loginEmail.toLowerCase();
+const trimmedEmail = lowerEmail.trim();
+console.log(trimmedEmail);
+
+console.log(email === trimmedEmail);
+
+// Replacing
+const priceGB = "288,97E";
+const priceUS = priceGB.replace("E", "$").replace(",", ".");
+console.log(priceUS);
+
+const announcement = "All passengers come to boarding door 23, Boarding door 23!";
+
+console.log(announcement.replaceAll('door', "gate"));
+
+// Booleans
+const plane = "A320neo";
+console.log(plane.includes('A320'));
+console.log(plane.startsWith("Air"));
+
+if (plane.startsWith('Airbus') && plane.endsWith("neo")) {
+    console.log("new airbus family.");
+} else {
+    console.log("Bekaar plane");
+};
+
+// Practise exercise
+const checkBaggage = function (items) {
+    const baggage = items.toLowerCase();
+    if (baggage.includes("knife") || baggage.includes("gun")) {
+        console.log("Nikal yaha se.");
+    } else {
+        console.log("Aaja");
+    }
+};
+
+checkBaggage("I have a laptop, a lighter, a knife and an apple.");
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 const plane = "A320";
 
 console.log(plane[0]);
