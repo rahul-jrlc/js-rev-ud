@@ -73,6 +73,42 @@ const restaurant = {
 
 // WORKING WITH STRINGS
 
+// Split aand join
+
+console.log("A+very+nice+string".split("+"));
+console.log("Pinky Ahuja".split(" "));
+
+const [firstName, lastName] = "Pinky Ahuja".split(" ");
+
+const newName = ["Mr.", firstName, lastName.toUpperCase()].join(" ");
+console.log(newName);
+
+// const passenger = "jessica ann smith davis";
+
+const capitalizeName = function (name) {
+    const nameArr = name.split(" ");
+    const names = [];
+
+    for (let i = 0; i < nameArr.length; i++) {
+        // names.push(nameArr[i][0].toUpperCase() + nameArr[i].slice(1));
+        names.push(nameArr[i].replace(nameArr[i][0], nameArr[i][0].toUpperCase()))
+    }
+    const capitalizedName = names.join(" ");
+    console.log(capitalizedName);
+
+};
+
+capitalizeName('jessica ann smith davis');
+capitalizeName('robert pinky ahuja');
+
+// Padding
+const message = "Go to gate 23";
+console.log(message.padStart(25, "="));
+
+
+
+
+/*
 const airline = "TAP Air Portugal";
 
 console.log(airline.toLowerCase());
