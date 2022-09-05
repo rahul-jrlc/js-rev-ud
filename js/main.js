@@ -1,7 +1,7 @@
 "use strict";
 
 // A CLOSER LOOK AT FUNCTIONS
-
+/*
 // Default parameters
 
 const bookings = [];
@@ -27,3 +27,36 @@ creatBooking('LH123', 2, 800);
 creatBooking("LH123", 3);
 
 creatBooking("LH123", undefined, 300);// skipping a default parameter
+*/
+
+// How passing arguments works - value vs reference
+const flight = "LH234";
+
+const jonas = {
+    name: "Jonas Schmedtmann",
+    passport: 343442,
+
+};
+
+const checkIn = function (flightNum, passenger) {
+    flightNum = "LH999";
+    passenger.name = "Mr. " + passenger.name;
+
+    if (passenger.passport === 343442) {
+        alert("Check In")
+    } else {
+        alert("Wrong")
+    }
+};
+
+// checkIn(flight, jonas);
+// console.log(flight);
+// console.log(jonas);
+
+const newPassport = function (person) {
+    person.passport = Math.trunc(Math.random() * 198724);
+};
+
+newPassport(jonas);
+checkIn(flight, jonas);
+console.log(jonas);
