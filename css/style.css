@@ -15,13 +15,18 @@ h1 {
     color: white;
 }
 
-button {
-    width: 50px;
-    height: 20px;
-    margin: 10px;
+.buy,
+.poll {
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+    position: absolute;
+    top: 2rem;
 }
 
-textarea {
-    width: 300px;
-    height: 100px;
+.buy {
+    left: 2rem;
+}
+
+.poll {
+    right: 2rem;
 }
